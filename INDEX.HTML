@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="STYLE.CSS">
+</head>
+<body class="bg-slate-900 text-white">
+
+    <header class="bg-cyan-600 p-4 mb-10">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-2xl font-bold">QR Code Generator</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="max-w-4xl mx-auto p-6 md:p-10 flex flex-col-reverse md:flex-row items-center justify-center gap-10">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-4xl font-bold mb-4">Generate Instantly</h2>
+                <p class="text-slate-400 mb-6">Enter a URL to see the QR code update in real-time. Download the image when you're ready.</p>
+                
+                <form id="generate-form" class="space-y-4">
+                    <div>
+                        <input id="url" type="url" placeholder="Enter a valid URL"
+                               class="w-full p-3 rounded-md bg-slate-800 border-2 border-slate-600 focus:outline-none focus:border-cyan-500 transition-colors" required />
+                    </div>
+                    <div>
+                        <select id="size" class="w-full p-3 rounded-md bg-slate-800 border-2 border-slate-600 focus:outline-none focus:border-cyan-500">
+                            <option value="100">100x100</option>
+                            <option value="200">200x200</option>
+                            <option value="300" selected>300x300</option>
+                            <option value="400">400x400</option>
+                            <option value="500">500x500</option>
+                        </select>
+                    </div>
+                    <button id="generate-btn" type="submit"
+                            class="w-full bg-cyan-600 rounded-md text-white font-bold py-3 hover:bg-cyan-700 transition-colors disabled:bg-slate-700 disabled:cursor-not-allowed">
+                        Generate QR Code
+                    </button>
+                </form>
+            </div>
+
+            <div id="generated" class="w-full md:w-1/2 p-6 bg-slate-800 rounded-lg shadow-lg flex flex-col items-center justify-center min-h-[300px]">
+                <div id="spinner" class="spinner" role="status"></div>
+                <div id="qrcode" class="flex items-center justify-center"></div>
+                <p id="placeholder-text" class="text-slate-500">Your QR Code will appear here</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="SCRIPT.js"></script>
+</body>
+</html>

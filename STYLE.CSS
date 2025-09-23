@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Custom Spinner Animation */
+.spinner {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #0891b2; /* Tailwind cyan-600 */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom styles for QR code canvas to make it visible */
+#qrcode canvas,
+#qrcode img {
+    border: 5px solid #334155; /* bg-slate-700 */
+    border-radius: 0.5rem;
+    padding: 10px;
+    background-color: #fff;
+}
